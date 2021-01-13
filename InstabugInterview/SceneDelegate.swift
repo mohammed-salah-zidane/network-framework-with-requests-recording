@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import InstabugNetworkClient
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

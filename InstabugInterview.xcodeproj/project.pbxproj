@@ -13,7 +13,51 @@
 		24AA93A625AF0DA4007588C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AA93A425AF0DA4007588C7 /* Main.storyboard */; };
 		24AA93A825AF0DA5007588C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24AA93A725AF0DA5007588C7 /* Assets.xcassets */; };
 		24AA93AB25AF0DA5007588C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AA93A925AF0DA5007588C7 /* LaunchScreen.storyboard */; };
+		24AA93C125AF0F0D007588C7 /* InstabugNetworkClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA93B825AF0F0D007588C7 /* InstabugNetworkClient.framework */; };
+		24AA93C825AF0F0D007588C7 /* InstabugNetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA93C725AF0F0D007588C7 /* InstabugNetworkClientTests.swift */; };
+		24AA93CA25AF0F0D007588C7 /* InstabugNetworkClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 24AA93BA25AF0F0D007588C7 /* InstabugNetworkClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24AA93CD25AF0F0D007588C7 /* InstabugNetworkClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA93B825AF0F0D007588C7 /* InstabugNetworkClient.framework */; };
+		24AA93CE25AF0F0D007588C7 /* InstabugNetworkClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA93B825AF0F0D007588C7 /* InstabugNetworkClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24AA93D925AF0F24007588C7 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA93D825AF0F24007588C7 /* NetworkClient.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24AA93C225AF0F0D007588C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24AA939325AF0DA4007588C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24AA93B725AF0F0D007588C7;
+			remoteInfo = InstabugNetworkClient;
+		};
+		24AA93C425AF0F0D007588C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24AA939325AF0DA4007588C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24AA939A25AF0DA4007588C7;
+			remoteInfo = InstabugInterview;
+		};
+		24AA93CB25AF0F0D007588C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24AA939325AF0DA4007588C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24AA93B725AF0F0D007588C7;
+			remoteInfo = InstabugNetworkClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		24AA93D225AF0F0D007588C7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24AA93CE25AF0F0D007588C7 /* InstabugNetworkClient.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		24AA939B25AF0DA4007588C7 /* InstabugInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstabugInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +68,13 @@
 		24AA93A725AF0DA5007588C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24AA93AA25AF0DA5007588C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24AA93AC25AF0DA5007588C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24AA93B825AF0F0D007588C7 /* InstabugNetworkClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstabugNetworkClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24AA93BA25AF0F0D007588C7 /* InstabugNetworkClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstabugNetworkClient.h; sourceTree = "<group>"; };
+		24AA93BB25AF0F0D007588C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24AA93C025AF0F0D007588C7 /* InstabugNetworkClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstabugNetworkClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24AA93C725AF0F0D007588C7 /* InstabugNetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstabugNetworkClientTests.swift; sourceTree = "<group>"; };
+		24AA93C925AF0F0D007588C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24AA93D825AF0F24007588C7 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +82,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24AA93CD25AF0F0D007588C7 /* InstabugNetworkClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24AA93B525AF0F0D007588C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24AA93BD25AF0F0D007588C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24AA93C125AF0F0D007588C7 /* InstabugNetworkClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				24AA939D25AF0DA4007588C7 /* InstabugInterview */,
+				24AA93B925AF0F0D007588C7 /* InstabugNetworkClient */,
+				24AA93C625AF0F0D007588C7 /* InstabugNetworkClientTests */,
 				24AA939C25AF0DA4007588C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				24AA939B25AF0DA4007588C7 /* InstabugInterview.app */,
+				24AA93B825AF0F0D007588C7 /* InstabugNetworkClient.framework */,
+				24AA93C025AF0F0D007588C7 /* InstabugNetworkClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,7 +138,37 @@
 			path = InstabugInterview;
 			sourceTree = "<group>";
 		};
+		24AA93B925AF0F0D007588C7 /* InstabugNetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				24AA93BA25AF0F0D007588C7 /* InstabugNetworkClient.h */,
+				24AA93BB25AF0F0D007588C7 /* Info.plist */,
+				24AA93D825AF0F24007588C7 /* NetworkClient.swift */,
+			);
+			path = InstabugNetworkClient;
+			sourceTree = "<group>";
+		};
+		24AA93C625AF0F0D007588C7 /* InstabugNetworkClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				24AA93C725AF0F0D007588C7 /* InstabugNetworkClientTests.swift */,
+				24AA93C925AF0F0D007588C7 /* Info.plist */,
+			);
+			path = InstabugNetworkClientTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		24AA93B325AF0F0D007588C7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24AA93CA25AF0F0D007588C7 /* InstabugNetworkClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		24AA939A25AF0DA4007588C7 /* InstabugInterview */ = {
@@ -77,15 +178,54 @@
 				24AA939725AF0DA4007588C7 /* Sources */,
 				24AA939825AF0DA4007588C7 /* Frameworks */,
 				24AA939925AF0DA4007588C7 /* Resources */,
+				24AA93D225AF0F0D007588C7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				24AA93CC25AF0F0D007588C7 /* PBXTargetDependency */,
 			);
 			name = InstabugInterview;
 			productName = InstabugInterview;
 			productReference = 24AA939B25AF0DA4007588C7 /* InstabugInterview.app */;
 			productType = "com.apple.product-type.application";
+		};
+		24AA93B725AF0F0D007588C7 /* InstabugNetworkClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24AA93CF25AF0F0D007588C7 /* Build configuration list for PBXNativeTarget "InstabugNetworkClient" */;
+			buildPhases = (
+				24AA93B325AF0F0D007588C7 /* Headers */,
+				24AA93B425AF0F0D007588C7 /* Sources */,
+				24AA93B525AF0F0D007588C7 /* Frameworks */,
+				24AA93B625AF0F0D007588C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InstabugNetworkClient;
+			productName = InstabugNetworkClient;
+			productReference = 24AA93B825AF0F0D007588C7 /* InstabugNetworkClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		24AA93BF25AF0F0D007588C7 /* InstabugNetworkClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24AA93D325AF0F0D007588C7 /* Build configuration list for PBXNativeTarget "InstabugNetworkClientTests" */;
+			buildPhases = (
+				24AA93BC25AF0F0D007588C7 /* Sources */,
+				24AA93BD25AF0F0D007588C7 /* Frameworks */,
+				24AA93BE25AF0F0D007588C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24AA93C325AF0F0D007588C7 /* PBXTargetDependency */,
+				24AA93C525AF0F0D007588C7 /* PBXTargetDependency */,
+			);
+			name = InstabugNetworkClientTests;
+			productName = InstabugNetworkClientTests;
+			productReference = 24AA93C025AF0F0D007588C7 /* InstabugNetworkClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +238,14 @@
 				TargetAttributes = {
 					24AA939A25AF0DA4007588C7 = {
 						CreatedOnToolsVersion = 12.2;
+					};
+					24AA93B725AF0F0D007588C7 = {
+						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
+					};
+					24AA93BF25AF0F0D007588C7 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 24AA939A25AF0DA4007588C7;
 					};
 				};
 			};
@@ -115,6 +263,8 @@
 			projectRoot = "";
 			targets = (
 				24AA939A25AF0DA4007588C7 /* InstabugInterview */,
+				24AA93B725AF0F0D007588C7 /* InstabugNetworkClient */,
+				24AA93BF25AF0F0D007588C7 /* InstabugNetworkClientTests */,
 			);
 		};
 /* End PBXProject section */
@@ -127,6 +277,20 @@
 				24AA93AB25AF0DA5007588C7 /* LaunchScreen.storyboard in Resources */,
 				24AA93A825AF0DA5007588C7 /* Assets.xcassets in Resources */,
 				24AA93A625AF0DA4007588C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24AA93B625AF0F0D007588C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24AA93BE25AF0F0D007588C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +307,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24AA93B425AF0F0D007588C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24AA93D925AF0F24007588C7 /* NetworkClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24AA93BC25AF0F0D007588C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24AA93C825AF0F0D007588C7 /* InstabugNetworkClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24AA93C325AF0F0D007588C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24AA93B725AF0F0D007588C7 /* InstabugNetworkClient */;
+			targetProxy = 24AA93C225AF0F0D007588C7 /* PBXContainerItemProxy */;
+		};
+		24AA93C525AF0F0D007588C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24AA939A25AF0DA4007588C7 /* InstabugInterview */;
+			targetProxy = 24AA93C425AF0F0D007588C7 /* PBXContainerItemProxy */;
+		};
+		24AA93CC25AF0F0D007588C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24AA93B725AF0F0D007588C7 /* InstabugNetworkClient */;
+			targetProxy = 24AA93CB25AF0F0D007588C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		24AA93A425AF0DA4007588C7 /* Main.storyboard */ = {
@@ -284,6 +482,7 @@
 		24AA93B025AF0DA5007588C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +501,7 @@
 		24AA93B125AF0DA5007588C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -314,6 +514,99 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		24AA93D025AF0F0D007588C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = InstabugNetworkClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Instabug.InstabugNetworkClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		24AA93D125AF0F0D007588C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = InstabugNetworkClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Instabug.InstabugNetworkClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		24AA93D425AF0F0D007588C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = InstabugNetworkClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Instabug.InstabugNetworkClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstabugInterview.app/InstabugInterview";
+			};
+			name = Debug;
+		};
+		24AA93D525AF0F0D007588C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = InstabugNetworkClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Instabug.InstabugNetworkClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstabugInterview.app/InstabugInterview";
 			};
 			name = Release;
 		};
@@ -334,6 +627,24 @@
 			buildConfigurations = (
 				24AA93B025AF0DA5007588C7 /* Debug */,
 				24AA93B125AF0DA5007588C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24AA93CF25AF0F0D007588C7 /* Build configuration list for PBXNativeTarget "InstabugNetworkClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24AA93D025AF0F0D007588C7 /* Debug */,
+				24AA93D125AF0F0D007588C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24AA93D325AF0F0D007588C7 /* Build configuration list for PBXNativeTarget "InstabugNetworkClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24AA93D425AF0F0D007588C7 /* Debug */,
+				24AA93D525AF0F0D007588C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

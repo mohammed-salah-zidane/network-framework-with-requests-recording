@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import InstabugNetworkClient
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
