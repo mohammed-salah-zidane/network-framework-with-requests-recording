@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D49" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ErrorDBEntity" representedClassName="ErrorDBEntity" syncable="YES">
+        <attribute name="errorCode" optional="YES" attributeType="String"/>
+        <attribute name="errorDomain" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="NetworkRequestDBEntity" representedClassName="NetworkRequestDBEntity" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="request" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RequestDBEntity"/>
+        <relationship name="response" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ResponseDBEntity"/>
+    </entity>
+    <entity name="RequestDBEntity" representedClassName="RequestDBEntity" syncable="YES">
+        <attribute name="method" optional="YES" attributeType="String"/>
+        <attribute name="payload" optional="YES" attributeType="Binary"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+    </entity>
+    <entity name="ResponseDBEntity" representedClassName="ResponseDBEntity" syncable="YES">
+        <relationship name="error" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ErrorDBEntity"/>
+        <relationship name="success" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SuccessDBEntity"/>
+    </entity>
+    <entity name="SuccessDBEntity" representedClassName="SuccessDBEntity" syncable="YES">
+        <attribute name="payload" optional="YES" attributeType="Binary"/>
+        <attribute name="statusCode" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="ErrorDBEntity" positionX="-27" positionY="18" width="128" height="59"/>
+        <element name="NetworkRequestDBEntity" positionX="9" positionY="81" width="128" height="74"/>
+        <element name="RequestDBEntity" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="ResponseDBEntity" positionX="-54" positionY="-9" width="128" height="59"/>
+        <element name="SuccessDBEntity" positionX="-9" positionY="54" width="128" height="59"/>
+    </elements>
+</model>
