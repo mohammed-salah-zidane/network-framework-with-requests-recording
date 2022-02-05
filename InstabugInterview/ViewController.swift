@@ -19,6 +19,11 @@ class ViewController: UIViewController {
         NetworkClient.shared.get(URL(string: "https://httpbin.org/get")!) { data in
             myGroup.leave()
         }
+        
+        myGroup.enter()
+        NetworkClient.shared.get(URL(string: "https://httpbin.org/get")!) { data in
+            myGroup.leave()
+        }
     
         myGroup.notify(queue: .global()) {
             NetworkClient.shared.allNetworkRequests { requests in

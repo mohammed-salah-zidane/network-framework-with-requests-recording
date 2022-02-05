@@ -35,8 +35,7 @@ class NetworkRequestDao {
         do {
             let sort = Sort.init(key: "createDate")
             let entites = try storageContext.fetchAll(NetworkRequestDBEntity.self, sort: sort)
-            print("entitiescount,",entites?.count, recordsLimitCount)
-            guard let entitiesCount = entites?.count, entitiesCount == recordsLimitCount  else {
+            guard let entitiesCount = entites?.count, entitiesCount >= recordsLimitCount  else {
                 return nil
             }
             guard let firstEntity = entites?.first else {

@@ -94,6 +94,12 @@ extension NetworkClient {
         }
     }
     
+    public func resetRecords() {
+        self.concurrentQueue.async(flags: .barrier) {[weak self] in
+            self?.networkRequestDB?.reset()
+        }
+    }
+    
     public func setRecordsLimit(_ limit: Int) {
         self.concurrentQueue.async(flags: .barrier) {[weak self] in
             self?.recordsLimitCount = limit
