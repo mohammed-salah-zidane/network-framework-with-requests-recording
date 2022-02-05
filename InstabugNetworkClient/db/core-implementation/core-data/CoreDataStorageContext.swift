@@ -11,7 +11,7 @@ import CoreData
 public class CoreDataStorageContext: StorageContext {
     var managedContext: NSManagedObjectContext?
 
-    required init(configuration: ConfigurationType = .basic(identifier: "instabug")) {
+    public required init(configuration: ConfigurationType = .basic(identifier: "instabug-db")) {
         switch configuration {
         case .basic:
             initDB(modelName: configuration.identifier(), storeType: .sqLiteStoreType)
@@ -22,7 +22,7 @@ public class CoreDataStorageContext: StorageContext {
 
     private func initDB(modelName: String? = nil, storeType: StoreType) {
         let coordinator = CoreDataStoreCoordinator.persistentStoreCoordinator(modelName: modelName, storeType: storeType)
-        self.managedContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        self.managedContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         self.managedContext?.persistentStoreCoordinator = coordinator
     }
 }

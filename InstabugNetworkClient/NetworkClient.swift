@@ -17,6 +17,8 @@ public class NetworkClient {
     //Concurrent Queueu for thread safe operations
     private let concurrentQueue = DispatchQueue(label: "InstabugConcurrentQueue", attributes: .concurrent)
     
+    private var networkRequestDB: NetworkRequestDao?
+    
     // MARK: Network requests
     public func get(
         _ url: URL,
@@ -64,19 +66,22 @@ public class NetworkClient {
                 error: error as NSError?
             )
             
-            self.concurrentQueue.async {
+            self.concurrentQueue.sync {
+                print("back.....")
                 completionHandler(data)
             }
-        }
+        }.resume()
     }
 }
 
 // MARK: Network recording
 extension NetworkClient {
     public func enableRecording(with context: CoreDataStorageContext) {
-        DBManager.setup(storageContext: context)
-        recordingEnabled = true
-        DBManager.shared.networkRequestDao.reset()
+        self.concurrentQueue.async(flags: .barrier) {[weak self] in
+            self?.recordingEnabled = true
+            self?.networkRequestDB = NetworkRequestDao(storageContext: context)
+            self?.networkRequestDB?.reset()
+        }
     }
     
     public func allNetworkRequests(
@@ -86,8 +91,9 @@ extension NetworkClient {
             fatalError("You must call enableRecording function to configure the StoreContext before accessing any dao")
         }
         
-        concurrentQueue.async {
-            let requests = DBManager.shared.networkRequestDao.fetchAll()
+        concurrentQueue.sync { [weak self] in
+            guard let self = self else { return }
+            guard let requests = self.networkRequestDB?.fetchAll() else { return }
             completionHandler(requests)
         }
     }
@@ -101,11 +107,12 @@ extension NetworkClient {
         guard recordingEnabled else {
             return
         }
-        
         //Barrier flag in GrandDispatchQueue to convert all concurrent threads to serial untill complete its block then reverse it to concurrent again
-        self.concurrentQueue.async(flags: .barrier) {
+        self.concurrentQueue.async(flags: .barrier) {[weak self] in
+            guard let self = self else { return }
             let networkRequest = NetworkRequest.create(urlRequest: urlRequest, data: data, response: response, error: error)
-            DBManager.shared.networkRequestDao.save(object: networkRequest)
+            self.networkRequestDB?.save(object: networkRequest)
+            print("recording.....")
         }
     }
 }

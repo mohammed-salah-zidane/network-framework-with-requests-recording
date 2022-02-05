@@ -40,7 +40,9 @@ extension NSPersistentStoreCoordinator {
     /// Return NSPersistentStoreCoordinator object
     static func coordinator(modelName: String? = nil, storeType: StoreType) throws -> NSPersistentStoreCoordinator? {
 
-        guard let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd") else {
+        let bundle = Bundle(identifier: "com.Instabug.InstabugNetworkClient"
+        )
+        guard let modelURL = bundle?.url(forResource: modelName, withExtension: "momd") else {
             throw CoordinatorError.modelFileNotFound
         }
 

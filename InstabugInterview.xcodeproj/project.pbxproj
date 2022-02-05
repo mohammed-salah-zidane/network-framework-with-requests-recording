@@ -26,7 +26,6 @@
 		AB79890927AD46DA00DA1FC9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79890427AD46DA00DA1FC9 /* Extensions.swift */; };
 		AB79890A27AD46DA00DA1FC9 /* StorageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79890527AD46DA00DA1FC9 /* StorageContext.swift */; };
 		AB79890B27AD46DA00DA1FC9 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79890627AD46DA00DA1FC9 /* Mapper.swift */; };
-		AB79891027AD479300DA1FC9 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79890D27AD479200DA1FC9 /* DBManager.swift */; };
 		AB79891227AD479300DA1FC9 /* NetworkRequestDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79890F27AD479300DA1FC9 /* NetworkRequestDao.swift */; };
 		AB79892327AD484900DA1FC9 /* CoreDataStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79891A27AD484900DA1FC9 /* CoreDataStoreCoordinator.swift */; };
 		AB79892527AD484900DA1FC9 /* CoreDataStorageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79891D27AD484900DA1FC9 /* CoreDataStorageContext.swift */; };
@@ -109,7 +108,6 @@
 		AB79890427AD46DA00DA1FC9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AB79890527AD46DA00DA1FC9 /* StorageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageContext.swift; sourceTree = "<group>"; };
 		AB79890627AD46DA00DA1FC9 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		AB79890D27AD479200DA1FC9 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		AB79890F27AD479300DA1FC9 /* NetworkRequestDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestDao.swift; sourceTree = "<group>"; };
 		AB79891A27AD484900DA1FC9 /* CoreDataStoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStoreCoordinator.swift; sourceTree = "<group>"; };
 		AB79891D27AD484900DA1FC9 /* CoreDataStorageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStorageContext.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				AB79890F27AD479300DA1FC9 /* NetworkRequestDao.swift */,
-				AB79890D27AD479200DA1FC9 /* DBManager.swift */,
 			);
 			path = dao;
 			sourceTree = "<group>";
@@ -526,7 +523,6 @@
 				AB79899827ADCB5E00DA1FC9 /* NetworkRequest.swift in Sources */,
 				AB3509DC27ADF49A003BB843 /* NetworkRequestDBEntity+CoreDataClass.swift in Sources */,
 				AB79899C27ADCB8500DA1FC9 /* ResponseEntity.swift in Sources */,
-				AB79891027AD479300DA1FC9 /* DBManager.swift in Sources */,
 				AB7989A027ADCBBE00DA1FC9 /* ErrorEntity.swift in Sources */,
 				AB79899E27ADCBAB00DA1FC9 /* SuccessEntity.swift in Sources */,
 				AB79898927ADC3A700DA1FC9 /* ResponseDBEntity+CoreDataClass.swift in Sources */,
@@ -712,6 +708,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QX9AC3J6FG;
 				INFOPLIST_FILE = InstabugInterview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -731,6 +728,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QX9AC3J6FG;
 				INFOPLIST_FILE = InstabugInterview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -747,9 +745,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QX9AC3J6FG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -775,9 +775,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QX9AC3J6FG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -803,6 +805,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QX9AC3J6FG;
 				INFOPLIST_FILE = InstabugNetworkClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -822,6 +825,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QX9AC3J6FG;
 				INFOPLIST_FILE = InstabugNetworkClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
