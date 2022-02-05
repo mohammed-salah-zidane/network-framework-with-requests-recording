@@ -30,7 +30,6 @@ class ViewController: UIViewController {
                 print("requests count is ", requests.count)
             }
         }
-        //print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
     }
 }
 

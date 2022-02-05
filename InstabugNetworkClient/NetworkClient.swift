@@ -61,21 +61,24 @@ public class NetworkClient {
         
         URLSession.shared.dataTask(with: urlRequest) {[weak self] data, response, error in
             guard let self = self else {return}
-            let myGroup = DispatchGroup()
-            myGroup.enter()
+            //1. validate for records limit and remove the old one if limit exceeded
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
             self.validateRecordsLimit {
-                myGroup.leave()
+                dispatchGroup.leave()
             }
-            myGroup.notify(queue: .main) {
-                self.recordRequest(
+            
+            dispatchGroup.notify(queue: .main) {[weak self]  in
+                //2. save network request record with async barrier flag
+                self?.recordRequest(
                     urlRequest: urlRequest,
                     data: data,
                     response: response as? HTTPURLResponse,
                     error: error as NSError?
                 )
                 
-                self.concurrentQueue.sync {
-                    print("back.....")
+                //3. sync call back
+                self?.concurrentQueue.sync {
                     completionHandler(data)
                 }
             }
@@ -114,8 +117,7 @@ extension NetworkClient {
         }
         
         concurrentQueue.sync { [weak self] in
-            guard let self = self else { return }
-            guard let requests = self.networkRequestDB?.fetchAll() else { return }
+            guard let requests = self?.networkRequestDB?.fetchAll() else { return }
             completionHandler(requests)
         }
     }
@@ -134,13 +136,12 @@ extension NetworkClient {
             guard let self = self else { return }
             let networkRequest = NetworkRequest.create(urlRequest: urlRequest, data: data, response: response, error: error)
             self.networkRequestDB?.save(object: networkRequest)
-            print("recording.....")
         }
-        
     }
     
     func validateRecordsLimit(_ completionHandler: @escaping () -> Void) {
         var entity: NetworkRequestDBEntity?
+        //1. search for old exceededRecord
         let group = DispatchGroup()
         group.enter()
         concurrentQueue.sync { [weak self] in
@@ -150,11 +151,13 @@ extension NetworkClient {
         
         group.wait()
         
+        //2. check if not exceed the limit
         guard entity != nil else {
             completionHandler()
             return
         }
         
+        //3. delete the old object with async barrier flag
         self.concurrentQueue.async(flags: .barrier) {[weak self] in
             self?.networkRequestDB?.delete(entity)
         }
