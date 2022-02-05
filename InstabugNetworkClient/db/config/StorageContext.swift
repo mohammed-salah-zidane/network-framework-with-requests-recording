@@ -8,9 +8,8 @@
 import Foundation
 import CoreData
 
-protocol StorageContext {
-    var managedContext: NSManagedObjectContext? {get set}
-
+protocol StorageContext: StoregeContextCoreDataProtcol {
+    
     func create(_ model: NetworkRequestDBEntity.Type) -> NetworkRequestDBEntity?
 
     func save() throws
@@ -20,7 +19,11 @@ protocol StorageContext {
     func fetchAll(_ model: NetworkRequestDBEntity.Type) throws -> [NetworkRequestDBEntity]?
 }
 
-extension StorageContext {
+protocol StoregeContextCoreDataProtcol {
+    var managedContext: NSManagedObjectContext? {get set}
+}
+
+extension StoregeContextCoreDataProtcol {
     func objectWithObjectId(objectId: NSManagedObjectID) -> NetworkRequestDBEntity? {
         return nil
     }
