@@ -10,7 +10,7 @@ import CoreData
 
 public class CoreDataStorageContext: StorageContext {
     var managedContext: NSManagedObjectContext?
-
+    
     public required init(configuration: ConfigurationType = .basic(identifier: "instabug-db")) {
         switch configuration {
         case .basic:
@@ -19,7 +19,7 @@ public class CoreDataStorageContext: StorageContext {
             initDB(storeType: .inMemoryStoreType)
         }
     }
-
+    
     private func initDB(modelName: String? = nil, storeType: StoreType) {
         let coordinator = CoreDataStoreCoordinator.persistentStoreCoordinator(modelName: modelName, storeType: storeType)
         self.managedContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -42,8 +42,13 @@ extension CoreDataStorageContext {
         try managedContext?.save()
     }
     
-    func fetchAll(_ model: NetworkRequestDBEntity.Type) throws -> [NetworkRequestDBEntity]?  {
-        try managedContext?.fetch(model.fetchRequest())
+    func fetchAll(_ model: NetworkRequestDBEntity.Type, sort: Sort? = nil) throws -> [NetworkRequestDBEntity]?  {
+        let fetchRequest = model.fetchRequest()
+        if let sort = sort {
+            fetchRequest.sortDescriptors = [sort.sortDecriptor()]
+        }
+        fetchRequest.fetchLimit = 1000
+        return try managedContext?.fetch(fetchRequest)
     }
     
     func deleteAll(_ model: NetworkRequestDBEntity.Type) throws {
@@ -52,6 +57,10 @@ extension CoreDataStorageContext {
             managedContext?.delete(entity)
         })
         try managedContext?.save()
+    }
+    
+    func delete(_ model: NetworkRequestDBEntity) throws {
+        managedContext?.delete(model)
     }
     
     func objectWithObjectId(objectId: NSManagedObjectID) -> NetworkRequestDBEntity? {

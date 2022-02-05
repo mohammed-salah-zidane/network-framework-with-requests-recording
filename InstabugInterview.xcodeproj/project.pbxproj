@@ -45,6 +45,7 @@
 		ABE9FCDE27ADF6170067DBB8 /* ErrorDBEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9FCDC27ADF6170067DBB8 /* ErrorDBEntity+CoreDataClass.swift */; };
 		ABE9FCDF27ADF6170067DBB8 /* ErrorDBEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9FCDD27ADF6170067DBB8 /* ErrorDBEntity+CoreDataProperties.swift */; };
 		ABE9FCE127AE9A900067DBB8 /* PayloadValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9FCE027AE9A900067DBB8 /* PayloadValidator.swift */; };
+		ABE9FCE327AED0F60067DBB8 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE9FCE227AED0F60067DBB8 /* Sort.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		ABE9FCDC27ADF6170067DBB8 /* ErrorDBEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorDBEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		ABE9FCDD27ADF6170067DBB8 /* ErrorDBEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorDBEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		ABE9FCE027AE9A900067DBB8 /* PayloadValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadValidator.swift; sourceTree = "<group>"; };
+		ABE9FCE227AED0F60067DBB8 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				AB79890427AD46DA00DA1FC9 /* Extensions.swift */,
 				AB79890527AD46DA00DA1FC9 /* StorageContext.swift */,
 				ABE9FCE027AE9A900067DBB8 /* PayloadValidator.swift */,
+				ABE9FCE227AED0F60067DBB8 /* Sort.swift */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				AB79898A27ADC3A700DA1FC9 /* ResponseDBEntity+CoreDataProperties.swift in Sources */,
 				ABE9FCDE27ADF6170067DBB8 /* ErrorDBEntity+CoreDataClass.swift in Sources */,
 				AB79891227AD479300DA1FC9 /* NetworkRequestDao.swift in Sources */,
+				ABE9FCE327AED0F60067DBB8 /* Sort.swift in Sources */,
 				AB3509DD27ADF49A003BB843 /* NetworkRequestDBEntity+CoreDataProperties.swift in Sources */,
 				AB79899827ADCB5E00DA1FC9 /* NetworkRequest.swift in Sources */,
 				AB3509DC27ADF49A003BB843 /* NetworkRequestDBEntity+CoreDataClass.swift in Sources */,

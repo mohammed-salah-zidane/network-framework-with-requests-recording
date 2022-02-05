@@ -10,7 +10,7 @@ import UIKit
 class NetworkRequestDao {
     
     private var storageContext: StorageContext
-    
+        
     required init(storageContext: StorageContext) {
         self.storageContext = storageContext
     }
@@ -30,6 +30,18 @@ class NetworkRequestDao {
             print(error.localizedDescription)
         }
     }
+
+    func delete(_ entity: NetworkRequestDBEntity?) {
+        do {
+            guard let entity = entity else {
+                return
+            }
+            try storageContext.delete(entity)
+            try storageContext.save()
+        }catch {
+            print(error.localizedDescription)
+        }
+    }
     
     func reset()  {
         do {
@@ -39,18 +51,20 @@ class NetworkRequestDao {
         }
     }
     
-    func fetchAll() -> [NetworkRequest] {
-        var requests = [NetworkRequest]()
+    func fetchAll(_ sort: Sort? = nil) -> [NetworkRequest] {
         do {
-            let entites = try storageContext.fetchAll(NetworkRequestDBEntity.self)
+            var requests = [NetworkRequest]()
+            let sort = Sort.init(key: "createDate")
+            let entites = try storageContext.fetchAll(NetworkRequestDBEntity.self, sort: sort)
             entites?.forEach({ entity in
                 var request = NetworkRequest()
                 Mapper.mapToDomain(from: entity, target: &request)
                 requests.append(request)
             })
+            return requests
         }catch {
             print(error.localizedDescription)
+            return []
         }
-        return requests
     }
 }

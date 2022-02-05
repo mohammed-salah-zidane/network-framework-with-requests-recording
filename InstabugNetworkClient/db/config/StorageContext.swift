@@ -15,8 +15,10 @@ protocol StorageContext: StoregeContextCoreDataProtcol {
     func save() throws
     
     func deleteAll(_ model: NetworkRequestDBEntity.Type) throws
+
+    func delete(_ model: NetworkRequestDBEntity) throws
     
-    func fetchAll(_ model: NetworkRequestDBEntity.Type) throws -> [NetworkRequestDBEntity]?
+    func fetchAll(_ model: NetworkRequestDBEntity.Type, sort: Sort?) throws -> [NetworkRequestDBEntity]?
 }
 
 protocol StoregeContextCoreDataProtcol {
