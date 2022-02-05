@@ -19,6 +19,8 @@ public class NetworkClient {
     
     private var networkRequestDB: NetworkRequestDao?
     
+    private var recordsLimitCount: Int = 1000
+    
     // MARK: Network requests
     public func get(
         _ url: URL,
@@ -59,16 +61,23 @@ public class NetworkClient {
         
         URLSession.shared.dataTask(with: urlRequest) {[weak self] data, response, error in
             guard let self = self else {return}
-            self.recordRequest(
-                urlRequest: urlRequest,
-                data: data,
-                response: response as? HTTPURLResponse,
-                error: error as NSError?
-            )
-            
-            self.concurrentQueue.sync {
-                print("back.....")
-                completionHandler(data)
+            let myGroup = DispatchGroup()
+            myGroup.enter()
+            self.validateRecordsLimit {
+                myGroup.leave()
+            }
+            myGroup.notify(queue: .main) {
+                self.recordRequest(
+                    urlRequest: urlRequest,
+                    data: data,
+                    response: response as? HTTPURLResponse,
+                    error: error as NSError?
+                )
+                
+                self.concurrentQueue.sync {
+                    print("back.....")
+                    completionHandler(data)
+                }
             }
         }.resume()
     }
@@ -76,11 +85,18 @@ public class NetworkClient {
 
 // MARK: Network recording
 extension NetworkClient {
-    public func enableRecording(with context: CoreDataStorageContext) {
+    public func enableRecording(with context: CoreDataStorageContext, withRecordsLimit limit: Int) {
         self.concurrentQueue.async(flags: .barrier) {[weak self] in
+            self?.recordsLimitCount = limit
             self?.recordingEnabled = true
             self?.networkRequestDB = NetworkRequestDao(storageContext: context)
             self?.networkRequestDB?.reset()
+        }
+    }
+    
+    public func setRecordsLimit(_ limit: Int) {
+        self.concurrentQueue.async(flags: .barrier) {[weak self] in
+            self?.recordsLimitCount = limit
         }
     }
     
@@ -113,6 +129,28 @@ extension NetworkClient {
             let networkRequest = NetworkRequest.create(urlRequest: urlRequest, data: data, response: response, error: error)
             self.networkRequestDB?.save(object: networkRequest)
             print("recording.....")
+        }
+        
+    }
+    
+    func validateRecordsLimit(_ completionHandler: @escaping () -> Void) {
+        var entity: NetworkRequestDBEntity?
+        let group = DispatchGroup()
+        group.enter()
+        concurrentQueue.sync { [weak self] in
+            entity = self?.networkRequestDB?.getExceededRecord(self?.recordsLimitCount ?? 0)
+            group.leave()
+        }
+        
+        group.wait()
+        
+        guard entity != nil else {
+            completionHandler()
+            return
+        }
+        
+        self.concurrentQueue.async(flags: .barrier) {[weak self] in
+            self?.networkRequestDB?.delete(entity)
         }
     }
 }

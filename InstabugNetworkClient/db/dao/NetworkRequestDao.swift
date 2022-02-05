@@ -31,6 +31,24 @@ class NetworkRequestDao {
         }
     }
 
+    func getExceededRecord(_ recordsLimitCount: Int = 1000) -> NetworkRequestDBEntity?  {
+        do {
+            let sort = Sort.init(key: "createDate")
+            let entites = try storageContext.fetchAll(NetworkRequestDBEntity.self, sort: sort)
+            print("entitiescount,",entites?.count, recordsLimitCount)
+            guard let entitiesCount = entites?.count, entitiesCount == recordsLimitCount  else {
+                return nil
+            }
+            guard let firstEntity = entites?.first else {
+                return nil
+            }
+            return firstEntity
+        }catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     func delete(_ entity: NetworkRequestDBEntity?) {
         do {
             guard let entity = entity else {

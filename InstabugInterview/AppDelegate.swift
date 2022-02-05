@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        NetworkClient.shared.enableRecording(with: CoreDataStorageContext())
+        NetworkClient.shared.enableRecording(with: CoreDataStorageContext(), withRecordsLimit: 1000)
         return true
     }
 

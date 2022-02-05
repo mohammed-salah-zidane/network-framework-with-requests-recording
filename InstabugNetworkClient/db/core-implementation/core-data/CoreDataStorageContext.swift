@@ -47,7 +47,6 @@ extension CoreDataStorageContext {
         if let sort = sort {
             fetchRequest.sortDescriptors = [sort.sortDecriptor()]
         }
-        fetchRequest.fetchLimit = 1000
         return try managedContext?.fetch(fetchRequest)
     }
     
